@@ -1,0 +1,29 @@
+{
+  "name": "fermidirak.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "init.js",
+  "scripts": {
+    "start": "nodemon init.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FermiDirak/fermidirak.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FermiDirak/fermidirak.github.io/issues"
+  },
+  "homepage": "https://github.com/FermiDirak/fermidirak.github.io#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "serve": "^14.1.2"
+  }
+}
