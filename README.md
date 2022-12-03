@@ -1,10 +1,12 @@
 # Introduction
-
     SigBin Framework, is a purely Visayan technology that harness the sheer 
-power of Vanilla JS. It can be an alternative stepping stone to learn web 
+
+power of Vanilla JS. It can be an alternative stepping stone to learn web
+
 development before opting for the big dogs like Vue, Angular & React JS Framework.
 
     It functions like a jQuery framework like using DOM selectors, yet it is 
+    
 prestructured like in React JS. 
 
 # Getting Started
