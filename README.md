@@ -1,7 +1,10 @@
 # Introduction
-<p>SigBin Framework, is a purely Visayan technology that harness the sheer power of Vanilla JS. It can be an alternative stepping stone to learn web development before opting for the big dogs like Vue, Angular & React JS Framework.</p>
+    SigBin Framework, is a purely Visayan technology that harness the sheer 
+    power of Vanilla JS. It can be an alternative stepping stone to learn web 
+    development before opting for the big dogs like Vue, Angular & React JS Framework.
 
-<p>It functions like a jQuery framework like using DOM selectors, yet it is prestructured like in React JS. </p>
+    It functions like a jQuery framework like using DOM selectors, yet it is 
+    prestructured like in React JS. </p>
 
 # Getting Started
     Install the packages first, go to the root folder, then enter in CLI
@@ -17,6 +20,7 @@
     $    localhost:5000
 
 # Files and Folders Structure
+
                   init.js -> the code for serving using node
          build/index.html -> the scaffolding HTML code
     build/index_style.css -> css file for importing custom files from the user
@@ -39,7 +43,7 @@
     function HTML(){ //window.innerHeight
         /* Start of JS Add Code Here */
         /**/
-        let name;                                      ###  <------------- start of page logic
+        let name;          ###  <------------- start of page logic
         let email;
         let phone;
 
@@ -58,11 +62,11 @@
         "#test-submit".onclick( (ev) => {
             paramHook.setPageParam("testsubmitreceiver",{name, email, phone});
             sigbin.hop('/testsubmitreceiver');
-        });                                             ###  <------------- end of page logic
+        });               ###  <------------- end of page logic
         
         /* Endin of JS Add Code Here */
         const HTMLValue=/*html*/` 
-                <div class='test-padding'>                ###  <------------- start of page visual design                      
+                <div class='test-padding'>###  <------------- start of page visual design                      
                     <div>Full Screen Less the Header</div>
                     <div><hr/></div>
                     <div><h1>Hello World</h1></div>
@@ -78,14 +82,14 @@
                                     <button id="test-submit" class='orangeB'>Submit</button>
                             </div>
                     </div>
-                </div>                                      ###  <------------- end of page visual design
+                </div>                 ###  <------------- end of page visual design
 
         `;return HTMLValue;
         }
         return {HTML}
     }
     let test = Ttest();
-    export default test;                                    ###  <------------- name of page fragment object to export
+    export default test;               ###  <------------- name of page fragment object to export
 
 # Route, Links and Main Menu
 
@@ -94,11 +98,11 @@
 
     example.
 
-    import sigbin     from "../js/gmodules/SigBinBoy.js";                   ###  <------------- importing of main module
+    import sigbin     from "../js/gmodules/SigBinBoy.js";###  <------------- importing of main module
 
     //   First Step
     //import all the available pages here
-    import main      from "../pages/main.js";                               ###  <------------- importing of individual page fragment
+    import main      from "../pages/main.js";   ###  <------------- importing of individual page fragment
     import work      from "../pages/work.js";
     import portfolio from "../pages/portfolio.js";
     import contacts  from "../pages/contacts.js";
@@ -117,7 +121,7 @@
         // List all the known pages together with its
         // corresponding virtual route path
         const routeList = {
-                        '/' : main,                                       ###  <------------- assigning route address with each corresponding page fragment
+                        '/' : main,           ###  <------------- assigning route address with each corresponding page fragment
                     '/test' : test,
             '/index.html' : main,
                     '/work' : work,
@@ -150,7 +154,7 @@
         // hamburger menu in the upper right side of the web app screen 
         const HTMLValue = /*fragented*//*html*/`
 
-            <a href="" id="homeLink">                                                                   ###  <------------- code for list of HTML links for main menu
+            <a href="" id="homeLink">         ###  <------------- code for list of HTML links for main menu
                 <li>Home</li>
             </a>
 
