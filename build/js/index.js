@@ -8,7 +8,7 @@ const Tindex = () => {   //work
     let navigateRequest = [];
     let pageBody = "";
     let menu = mainmenu( (currentPage)=>{
-        pageBody = currentPage;
+        //pageBody = currentPage;
     });
     //let footerContent = footer();
     //Start of router function
@@ -23,7 +23,7 @@ const Tindex = () => {   //work
     window.onpopstate = () => { //this is when the user press the back/forward button of the browser
         window.location.reload();
         let router = menu.route(window.location.pathname);
-        if (router) pageBody = router.HTML(); else {
+        if (router === null)  {
             // make a page not found page here
             //pageBody = "<h1 style='color:red;text-align:center;align-items:center;width:100%'>⚠️ Page Requested is not found. ⚠️<br/>⚠️ You reached the end of the line.... ⚠️</h1>"
             pageBody = page404.HTML();
