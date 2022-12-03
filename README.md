@@ -12,6 +12,10 @@
 
     $    npm start
 
+    A local server will be spawned
+
+    $    localhost:5000
+
 # Files and Folders Structure
                   init.js -> the code for serving using node
          build/index.html -> the scaffolding HTML code
@@ -28,59 +32,60 @@
     These files are located in the folder build/pages. It is the basic structure
     in building a page in the web app. for example:
 
-import paramHook from "../js/gmodules/paramHooks.js" ###  <------------- import files
-import sigbin from  "../js/gmodules/SigBinBoy.js";   ###  <------------- import files
-const Ttest = () => {
+    import paramHook from "../js/gmodules/paramHooks.js" ###  <------------- import files
+    import sigbin from  "../js/gmodules/SigBinBoy.js";   ###  <------------- import files
+    const Ttest = () => {
+    
     function HTML(){ //window.innerHeight
-      /* Start of JS Add Code Here */
-      /**/
-      let name;                                      ###  <------------- start of page logic
-      let email;
-      let phone;
+        /* Start of JS Add Code Here */
+        /**/
+        let name;                                      ###  <------------- start of page logic
+        let email;
+        let phone;
 
-      "#test-name".onchange( (ev) => {
-          name = ev.target.value;
-      });
+        "#test-name".onchange( (ev) => {
+            name = ev.target.value;
+        });
 
-      "#test-email".onchange( (ev) => {
-          email = ev.target.value;
-      });
+        "#test-email".onchange( (ev) => {
+            email = ev.target.value;
+        });
 
-      "#test-phone".onchange( (ev) => {
-          phone = ev.target.value;
-      });
+        "#test-phone".onchange( (ev) => {
+            phone = ev.target.value;
+        });
 
-      "#test-submit".onclick( (ev) => {
-          paramHook.setPageParam("testsubmitreceiver",{name, email, phone});
-          sigbin.hop('/testsubmitreceiver');
-      });                                             ###  <------------- end of page logic
-      
-      /* Endin of JS Add Code Here */
-      const HTMLValue=/*html*/` 
-            <div class='test-padding'>                ###  <------------- start of page visual design                      
-                <div>Full Screen Less the Header</div>
-                <div><hr/></div>
-                <div><h1>Hello World</h1></div>
-                <div><hr/></div>
-                <div class='test-form'> 
-                           Name
-                           <input id="test-name"  type="text"  class="whiteInp" />
-                           Email
-                           <input id='test-email' type="email" class="whiteInp" />
-                           Phone
-                           <input id='test-phone' type="tel"   class="whiteInp" />
-                           <div class='test-button-container'>
-                                <button id="test-submit" class='orangeB'>Submit</button>
-                           </div>
-                </div>
-            </div>                                      ###  <------------- end of page visual design
+        "#test-submit".onclick( (ev) => {
+            paramHook.setPageParam("testsubmitreceiver",{name, email, phone});
+            sigbin.hop('/testsubmitreceiver');
+        });                                             ###  <------------- end of page logic
+        
+        /* Endin of JS Add Code Here */
+        const HTMLValue=/*html*/` 
+                <div class='test-padding'>                ###  <------------- start of page visual design                      
+                    <div>Full Screen Less the Header</div>
+                    <div><hr/></div>
+                    <div><h1>Hello World</h1></div>
+                    <div><hr/></div>
+                    <div class='test-form'> 
+                            Name
+                            <input id="test-name"  type="text"  class="whiteInp" />
+                            Email
+                            <input id='test-email' type="email" class="whiteInp" />
+                            Phone
+                            <input id='test-phone' type="tel"   class="whiteInp" />
+                            <div class='test-button-container'>
+                                    <button id="test-submit" class='orangeB'>Submit</button>
+                            </div>
+                    </div>
+                </div>                                      ###  <------------- end of page visual design
 
-      `;return HTMLValue;
+        `;return HTMLValue;
+        }
+        return {HTML}
     }
-    return {HTML}
-}
-let test = Ttest();
-export default test;                                    ###  <------------- name of page fragment object to export
+    let test = Ttest();
+    export default test;                                    ###  <------------- name of page fragment object to export
 
 # Route, Links and Main Menu
 
@@ -89,85 +94,85 @@ export default test;                                    ###  <------------- name
 
     example.
 
-import sigbin     from "../js/gmodules/SigBinBoy.js";                   ###  <------------- importing of main module
+    import sigbin     from "../js/gmodules/SigBinBoy.js";                   ###  <------------- importing of main module
 
-//   First Step
-//import all the available pages here
-import main      from "../pages/main.js";                               ###  <------------- importing of individual page fragment
-import work      from "../pages/work.js";
-import portfolio from "../pages/portfolio.js";
-import contacts  from "../pages/contacts.js";
-import test      from "../pages/test.js"
-import testsubmitreceiver  from "../pages/testsubmitreceiver.js";
+    //   First Step
+    //import all the available pages here
+    import main      from "../pages/main.js";                               ###  <------------- importing of individual page fragment
+    import work      from "../pages/work.js";
+    import portfolio from "../pages/portfolio.js";
+    import contacts  from "../pages/contacts.js";
+    import test      from "../pages/test.js"
+    import testsubmitreceiver  from "../pages/testsubmitreceiver.js";
 
-const router = (getCurrentPageCallBack) => {
-    function HTML(){
-        return HTMLValue;
-     }
-    function route(routePath){
-        return routeList[routePath];
+    const router = (getCurrentPageCallBack) => {
+        function HTML(){
+            return HTMLValue;
+        }
+        function route(routePath){
+            return routeList[routePath];
+        }
+        
+        //   Second Step
+        // List all the known pages together with its
+        // corresponding virtual route path
+        const routeList = {
+                        '/' : main,                                       ###  <------------- assigning route address with each corresponding page fragment
+                    '/test' : test,
+            '/index.html' : main,
+                    '/work' : work,
+            '/portfolio' : portfolio,
+                '/contacts' : contacts,
+    '/testsubmitreceiver' : testsubmitreceiver,
+            };
+
+        //   Third Step    
+        // Register and Initialize main menu links here from 
+        // these will appear in the right hand side as a 
+        // hamburger menu,
+        // note: do not register links that are used to download files
+        function registerAllLinks(){
+
+            // This are the links that apprears in the main menu
+            sigbin.registerLink('/index.html'  ,"#homeLink"     , routeList, getCurrentPageCallBack);    ###  <------------- creating items in the main menu and
+            sigbin.registerLink('/test'        ,"#test"         , routeList, getCurrentPageCallBack);                        same time building link list
+            sigbin.registerLink('/portfolio'   ,"#portfolioLink", routeList, getCurrentPageCallBack);
+            sigbin.registerLink('/work'        ,"#workLink"     , routeList, getCurrentPageCallBack);
+            sigbin.registerLink('/contacts'    ,"#contactLink"  , routeList, getCurrentPageCallBack);
+
+            // This are the links that apprears else where other than the main menu
+            sigbin.registerLink('/contacts' ,"#contactLink2"  ,routeList, getCurrentPageCallBack);      ###  <------------- creating non main menu links
+
+        }// end of registerAllLinks()
+
+        //    Forth Step
+        // design the individual options/selections that would appear in the 
+        // hamburger menu in the upper right side of the web app screen 
+        const HTMLValue = /*fragented*//*html*/`
+
+            <a href="" id="homeLink">                                                                   ###  <------------- code for list of HTML links for main menu
+                <li>Home</li>
+            </a>
+
+            <a href="" id="test">
+                <li>Testing</li>
+            </a>
+
+            <a href="" id="portfolioLink">
+                <li>Portfolio</li>
+            </a>
+            
+            <a href="" id="workLink">
+                <li>Work</li>
+            </a>
+            
+            <a href="" id="contactLink">
+                <li>Contact</li>
+            </a> 
+
+        `;//End of fragented html
+        return {route,HTML,registerAllLinks,getCurrentPageCallBack}
     }
-    
-    //   Second Step
-    // List all the known pages together with its
-    // corresponding virtual route path
-    const routeList = {
-                    '/' : main,                                       ###  <------------- assigning route address with each corresponding page fragment
-                '/test' : test,
-          '/index.html' : main,
-                '/work' : work,
-           '/portfolio' : portfolio,
-            '/contacts' : contacts,
-  '/testsubmitreceiver' : testsubmitreceiver,
-        };
 
-    //   Third Step    
-    // Register and Initialize main menu links here from 
-    // these will appear in the right hand side as a 
-    // hamburger menu,
-    // note: do not register links that are used to download files
-    function registerAllLinks(){
-
-        // This are the links that apprears in the main menu
-        sigbin.registerLink('/index.html'  ,"#homeLink"     , routeList, getCurrentPageCallBack);    ###  <------------- creating items in the main menu and
-        sigbin.registerLink('/test'        ,"#test"         , routeList, getCurrentPageCallBack);                        same time building link list
-        sigbin.registerLink('/portfolio'   ,"#portfolioLink", routeList, getCurrentPageCallBack);
-        sigbin.registerLink('/work'        ,"#workLink"     , routeList, getCurrentPageCallBack);
-        sigbin.registerLink('/contacts'    ,"#contactLink"  , routeList, getCurrentPageCallBack);
-
-        // This are the links that apprears else where other than the main menu
-        sigbin.registerLink('/contacts' ,"#contactLink2"  ,routeList, getCurrentPageCallBack);      ###  <------------- creating non main menu links
-
-    }// end of registerAllLinks()
-
-    //    Forth Step
-    // design the individual options/selections that would appear in the 
-    // hamburger menu in the upper right side of the web app screen 
-    const HTMLValue = /*fragented*//*html*/`
-
-        <a href="" id="homeLink">                                                                   ###  <------------- code for list of HTML links for main menu
-            <li>Home</li>
-        </a>
-
-        <a href="" id="test">
-            <li>Testing</li>
-        </a>
-
-        <a href="" id="portfolioLink">
-            <li>Portfolio</li>
-        </a>
-        
-        <a href="" id="workLink">
-            <li>Work</li>
-        </a>
-        
-        <a href="" id="contactLink">
-            <li>Contact</li>
-        </a> 
-
-    `;//End of fragented html
-    return {route,HTML,registerAllLinks,getCurrentPageCallBack}
-}
-
-export default router;
+    export default router;
 
