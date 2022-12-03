@@ -1,10 +1,17 @@
 # Introduction
-    SigBin Framework, is a purely Visayan technology that harness the sheer 
+
+        SigBin Framework, is a purely Visayan technology that harness the sheer 
+
     power of Vanilla JS. It can be an alternative stepping stone to learn web 
+    
     development before opting for the big dogs like Vue, Angular & React JS Framework.
 
-    It functions like a jQuery framework like using DOM selectors, yet it is 
-    prestructured like in React JS. </p>
+    
+        It functions like a jQuery framework like using DOM selectors, yet it is 
+    
+    prestructured like in React JS. 
+
+
 
 # Getting Started
     Install the packages first, go to the root folder, then enter in CLI
@@ -22,13 +29,20 @@
 # Files and Folders Structure
 
                   init.js -> the code for serving using node
+
          build/index.html -> the scaffolding HTML code
+
     build/index_style.css -> css file for importing custom files from the user
+
              build/assets -> folder for svg, images, docs and videos
+
                 build/css -> pre loaded style sheets
+
                  build/js -> the main module for this framework
+
           build/pageMiscs -> folder that contains prebuilt html structures for the header
                              footer, mainmenu and page404 
+
               build/pages -> folder that contains the individual page fragments
 
 # Page Fragments
@@ -192,24 +206,61 @@
 ## For Example inside the HTML you declare a DOM,
     
     ...
+
     <div id="value-container" class="some_style"></div>
     <div>
-        <button id="increment-button"> Increent Value </button>
+        <button id="increment-button"> Increment Value </button>
     </div>
-    ...
-
-## then we dclare linkage between DOM and state variable,
 
     ...
-    let thisStateVariable = 0;
+
+## Then we declare linkage between DOM and state variable,
+
+    ...
+
+    let thisStateVariable = 0; // this is the state variable being initialized
     
-    "#value-container".linkToVal( () => thisStateVariable ); // linking DOM and variable
+    "#value-container".linkToVal(() => thisStateVariable); // linking DOM and variable once
 
     "#increment-button".onclick( (ev) => {  
+
         thisStateVariable++; //whenever the button is clicked the variable is incremented
+
     })
+
     ...
 
-    eventually the "value-container" div will be updated whenever the variable is changed.
+    ...eventually the "value-container" div will be updated whenever the variable is changed. automatically.
+
+# Context Management
+
+    Similar to React, sigbin framework has a simple context manager in order to pass data 
+
+    between pages without calling the server. Data will be cached for a limited period of time
+
+    and can be used by several other pages along the way. Context data is saved as json format
+
+    easily.
+
+### Example Context Management
+
+    // context declared in one page
+    saveContext("garry-context", [
+        {
+            name : "Ben Johnson",
+             age : 40,
+           email : "ben_thumbling@gmail.com"
+        },
+        {
+            name : "Micheal Jordan",
+             age : 52,
+           email : "mic_jor@gmail.com"
+        }
+    ]);
+
+    // context used by another page
+    let other_page = getContext("garry-context");
+
+
 
 
