@@ -1,0 +1,236 @@
+<div id="top1" class="head">
+            <h1 id="h343" class="h1">Hello World</h1>
+        </div>
+        <p>Main page content here, add more if you want to see the footer push down.</p>
+
+        <div id="top" class="head">
+            <h1 id="h1" class="h1">Hello World</h1>
+        </div>
+        <div id="top" class="head">
+            <h1 id="h0" class="h1">Hello World</h1>
+        </div>
+        <div class="head">
+            <h1 id="h2" class="h1">Hello World</h1>
+        </div>
+        <input type="text" id="name"  class="" placeholder="input a number">
+        <input type="text" id="lname" class="" placeholder="input a number">
+        <button id="greet" class="blueB">
+            Sum
+        </button>
+        <button id="greet2" class="greenB">
+            Minus
+        </button>
+        <button id="sort" class="orangeB">
+            Sort By Name Ascending
+        </button>
+        <button id="reverse" class="redB">
+            Reverse List
+        </button>
+        <button id="hide" class="orangeB">
+            Hide Data
+        </button>
+        <button id="show" class="redB">
+            Refresh Data
+        </button>
+        <div id="dataContainer" class="container"></div>
+
+#################################################################################
+
+    //############### variable declaration and initialization
+    let users = null;
+    let x = 0;
+    let y = 0;
+    let sum = 0;
+    let diff = 0;
+    let s = "<br/>"; 
+    //let dataIsVisible = true;
+    
+    //initial fetch data from outside
+    let loading = true;
+    dfetch.get('/js/data/users.json',(data)=>{
+        users = [...data];
+        loading = false;
+    });
+
+    
+    //routing list
+    let routes = {
+        '/'            : main.homepage,
+        '/index.html'  : main.homepage,
+        '/portfolio'   : portfolio,
+        '/work'        : works,
+        '/contacts'    : contacts,
+    };
+
+    #######################################################################
+
+        "#homeLink".e().onclick = () => {
+        onNavItemClick("/");
+        return false;
+    };
+    "#portfolioLink".e().onclick = () => {
+        onNavItemClick("/portfolio");
+        return false;
+    };
+    "#contactLink".e().onclick = () => {
+        onNavItemClick("/contacts");
+        return false;
+    };
+    "#workLink".e().onclick = () => {
+        onNavItemClick("/work");
+        return false;
+    };
+
+    //#################################### Output
+    // monitor variable s and reflect any changes 
+    // directly to id = #h1 DOM
+    '#h1'.linkToVal( () => s );
+    
+    // monitor variable s and reflect any changes 
+    // directly to id = #h1 DOM container
+    '#h0'.linkToVal( () => sum.toLocaleString() );
+
+    //diff value is monitored by the DOM container #h2,
+    //any changes to this value will be reflected back instantly
+    //to this DOM container
+    '#h2'.linkToVal( () => diff.toLocaleString() );
+    
+    //monitors the page to load each time
+    "#pageContainer".linkToVal( () => page );
+
+    //#@@@ usage when the item is an array
+    // '#data' is the DOM id of target container DOM to populate
+    let hidedataContainer = () => '#dataContainer' .i("");
+    let showdataContainer = () => '#dataContainer' .linkToArray( () => users, (user) => {
+        //Events and Operations declarations   
+        `#${user.id}_name`.onchange ( (ev) => {
+            user.name = ev.target.value;
+        });
+
+        `#${user.id}_age`.onchange ( (ev) => {
+            user.age = ev.target.value;
+        });        
+
+        `#${user.id}_post`.e().onclick=()=>{
+            `#${user.id}_edit_container`.i("");
+            read_container();
+            sigbin.requestInput(false);
+        };
+
+        `#${user.id}_delete`.e().onclick=()=>{
+            users.splice(users.indexOf(user),1) //delete user item
+        };
+
+        `#${user.id}_editName`.e().onclick=()=>{
+            sigbin.requestInput(true);
+            `#${user.id}_read_container`.i("");
+            edit_container();
+        };
+
+        let edit_container = () => { `#${user.id}_edit_container`.i(/*html*/`
+            <div>Name: 
+            <input type="text" id="${user.id}_name" class="greyInp" value="${user.name}" /></div>
+            <div>Age : 
+            <input type="number" id="${user.id}_age" class="greyInp" value="${user.age}" /></div>
+        `)};
+
+        let read_container = () => { `#${user.id}_read_container`.i(/*html*/`
+            <div>Name: <b>${user.name}</b></div>
+            <div>Age : <i>${user.age}</i></div>
+        `)};
+       
+        //HTML Container declarations
+        return(/*html*/`  
+            <div class="userCardPadding">  
+                <div class="userCard">
+                    <div id="${user.id}_read_container"> 
+                        <div>Name: <b>${user.name}</b></div>
+                        <div>Age : <i>${user.age}</i></div>                
+                    </div >
+                    <div id="${user.id}_edit_container"> </div>
+                    <div class="buttoncontainer"> 
+                    <div class="userButtonPadding">   
+                        <button
+                            id = "${user.id}_editName"
+                            class="greenB">
+                                Edit
+                        </button></div >
+                        <div class="userCardPadding">
+                            <button
+                                id = "${user.id}_post"
+                                class="blueB">
+                                    Post
+                            </button>
+                        </div >
+                        <div class="userCardPadding">
+                            <button
+                                id = "${user.id}_delete"
+                                class="redB">
+                                    Del
+                            </button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+    `)});
+    showdataContainer();
+    
+    //################################### Input Events Declaration
+    '#name'.e().value = x = 26;
+    '#name'.onchange ( (ev)=>{
+        x = parseFloat(ev.target.value);
+    });
+
+    '#lname'.e().value = y = 43;
+    '#lname'.onchange( (ev)=> {
+        y = parseFloat(ev.target.value);
+    });
+
+    //################################## Click Events Declaration
+    // this is where you assign functions for 
+    // button selections and menu selections
+    // and other operations like CTA, POSTING, Fetching data
+    '#greet'.e().onclick=()=>{
+        sum = x + y;
+    };
+
+    '#greet2'.e().onclick=()=>{
+        diff = x - y;
+    };
+
+    '#sort'.e().onclick=()=>{
+        users.sort((a,b)=>a.name > b.name ? 1 : -1);
+    };
+
+    '#reverse'.e().onclick=()=>{
+        loading = true;
+        dfetch.get('\\js\\data\\users2.json',(data)=>{
+            users = [...data];
+            loading = false;
+        });
+    };
+
+    '#hide'.e().onclick=()=>{
+        hidedataContainer();
+    };
+
+    '#show'.e().onclick=()=>{
+        loading = true;
+        dfetch.get('\\js\\data\\users.json',(data)=>{
+            users = [...data];
+            loading = false;
+        });
+        showdataContainer();
+
+
+        <script type="module" src="./js/index.js"></script>
+
+        http://localhost:5000/
+
+
+    <footer class="page-footer">
+        <div id="pageFooterContent">
+        </div>
+    </footer>
+
+    https://l.facebook.com/l.php?u=https%3A%2F%2Fus06web.zoom.us%2Fj%2F88244951899%3Ffbclid%3DIwAR3lqv1jNk1Fo4ZuhBebfNwY9UH9QZOtjvk7wjrxYjQGqiI-9uAymIZD3l0&h=AT3NosLHGWu0i-nzZHnsrMIAgkyNFum2AkuzFZVM-efb32IoASSX7qybLQ9hG22F4DUc3ScSPCIXl52lYjidxMxx24x_Pn3FEJO2PTRgaHoqLlpOCLxmITeMWZteocUMNNJ6Rw
