@@ -21,6 +21,7 @@ const Tindex = () => {   //work
     }
      //this is when the user enters an address in the address bar
     window.onpopstate = () => { //this is when the user press the back/forward button of the browser
+        window.location.reload();
         let router = menu.route(window.location.pathname);
         if (router) pageBody = router.HTML(); else {
             // make a page not found page here
