@@ -180,3 +180,36 @@
 
     export default router;
 
+# Element Select
+
+    Like jQuery, sigbin framework is centered on directly manipulating DOM using selectors
+    which is the opposite of virtual DOM approach from React. However unlike jQuery,
+    sigbin framework can link a state variable with a certain DOM just by implicitely 
+    declaring there connectivity. Whenever a DOM is implicitely linked with a state variable,
+    what ever value the variable will have in the future can directly affect the DOM 
+    being linked to.
+
+## For Example inside the HTML you declare a DOM,
+    
+    ...
+    <div id="value-container" class="some_style"></div>
+    <div>
+        <button id="increment-button"> Increent Value </button>
+    </div>
+    ...
+
+## then we dclare linkage between DOM and state variable,
+
+    ...
+    let thisStateVariable = 0;
+    
+    "#value-container".linkToVal( () => thisStateVariable ); // linking DOM and variable
+
+    "#increment-button".onclick( (ev) => {  
+        thisStateVariable++; //whenever the button is clicked the variable is incremented
+    })
+    ...
+
+    eventually the "value-container" div will be updated whenever the variable is changed.
+
+
