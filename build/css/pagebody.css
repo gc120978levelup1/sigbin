@@ -1,0 +1,86 @@
+.page-body {
+    width: 100vw;
+    margin: 0;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 100vw;
+    margin: 0;
+    padding: 0px;
+    overflow-x: hidden;
+    flex: 1;
+}
+
+.head {
+    width: 100%;
+    border: solid; 
+    padding: 0px;
+    border-radius: 0px;
+    background-color: rgb(14, 14, 89);
+    color: beige;
+    padding-left: 0px;
+    text-align: center;
+}
+
+.buttoncontainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.userCardPadding{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+    width: calc(100%);
+}
+
+.userButtonPadding{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+    width: calc(100%);
+}
+
+.userCard{
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: beige;
+    border-radius: 0px;
+    background-color: rgba(2, 24, 21, 0.847);
+    box-shadow: 5px 4px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 10px 0 rgba(0, 0, 0, 0.5);
+    border-top: 4px solid rgba(65, 67, 93, 0.834);
+}
+
+.userCard b{
+    font-size: xx-large;
+}
+
+@media only screen and (min-width: 650px) {
+    /* i pad: */
+    .userCardPadding{
+        width: calc(100% / 2);
+    }
+    .userButtonPadding{
+        width: calc(100%);
+    }
+}
+
+@media only screen and (min-width: 1090px) {
+    /* For desktop: */
+    .userCardPadding{
+        width: calc(100% / 4);
+    }
+    .userButtonPadding{
+        width: calc(100% / 2.3);
+    }
+}

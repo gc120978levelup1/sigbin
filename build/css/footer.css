@@ -1,0 +1,13 @@
+.page-footer {
+    width: 100vw;
+    height: fit-content;
+    background-color: rgb(10, 22, 147);
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+footer {
+    position: sticky;
+    top: 100vh;
+}

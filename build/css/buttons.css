@@ -1,0 +1,128 @@
+.blueB{
+    font-size:x-large;
+    width: 100%;
+    text-align: center;
+    color: beige;
+    background-color: blue;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0px;
+    border-radius: 0px;
+    border-bottom: 4px solid rgb(10, 20, 128);
+    transition: all 700ms;
+}
+.blueB:hover{
+    background-color: rgb(84, 84, 218);
+    transition: all 700ms;
+}
+.blueB:active{
+    transform: translateY(20px);
+    transition: all 700ms;
+}
+
+.greenB{
+    font-size:x-large;
+    width: 100%;
+    text-align: center;
+    color: beige;
+    background-color: green;
+    margin-top: 10px;;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0px;
+    border-radius: 0px;
+    border-bottom: 4px solid rgb(5, 85, 17);
+    transition: all 700ms;
+}
+.greenB:hover{
+    background-color: rgb(52, 155, 23);
+    transition: all 700ms;
+}
+.greenB:active{
+    transform: translateY(20px);
+    transition: all 700ms;
+}
+
+.orangeB{
+    font-size:x-large;
+    width: 100%;
+    text-align: center;
+    color: beige;
+    background-color: rgb(158, 106, 9);
+    margin-top: 10px;;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0px;
+    border-radius: 0px;
+    border-bottom: 4px solid rgb(84, 85, 5);
+    transition: all 700ms;
+}
+.orangeB:hover{
+    background-color: rgb(144, 133, 13);
+    transition: all 700ms;
+}
+.orangeB:active{
+    transform: translateY(20px);
+    transition: all 700ms;
+}
+
+.redB{
+    font-size:x-large;
+    width: 100%;
+    text-align: center;
+    color: beige;
+    background-color: rgb(158, 39, 9);
+    margin-top: 10px;;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0px;
+    border-radius: 0px;
+    border-bottom: 4px solid rgb(85, 20, 5);
+    transition: all 700ms;
+}
+.redB:hover{
+    background-color: rgb(173, 69, 34);
+    transition: all 700ms;
+}
+.redB:active{
+    transform: translateY(20px);
+    transition: all 700ms;
+    animation: fade;
+}
+
+/* 
+display: flex;
+flex-wrap: wrap;
+justify-content: center; /*for horizontal control (right left)
+align-items: center;     /*for vertical control (up, down)
+
+text-align: end;
+text-align: left;
+text-align: right;
+text-align: center;
+
+https://developer.mozilla.org/en-US/docs/Web/CSS
+java script
+const f = document.getElementById('foo');
+document.addEventListener('click', (ev) => {
+  f.style.transform = `translateY(${ev.clientY - 25}px)`;
+  f.style.transform += `translateX(${ev.clientX - 25}px)`;
+}, false);
+
+
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  }
+  
+
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+  }
+
+*/

@@ -1,0 +1,32 @@
+.greyInp{
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 100%;
+    color: aliceblue;
+    padding: 10px;
+    background-color: rgba(81, 81, 81, 0.933);
+    border: 0;
+    margin-bottom: 10px;
+}
+
+.redInp{
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 100%;
+    color: aliceblue;
+    padding: 10px;
+    background-color: rgba(172, 16, 16, 0.933);
+    border: 0;
+    margin-bottom: 10px;
+}
+
+.whiteInp{
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 100%;
+    color: rgb(1, 19, 35);
+    padding: 10px;
+    background-color: rgba(239, 239, 239, 0.933);
+    border: 0;
+    margin-bottom: 10px;
+}

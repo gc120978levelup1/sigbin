@@ -1,0 +1,40 @@
+@import url('./buttons.css');
+@import url('./inputbox.css');
+@import url('./navmenu.css');
+@import url('./header.css');
+@import url('./footer.css');
+@import url('./pagebody.css');
+@import url('./styles.css');
+@import url('../index_style.css');
+
+*{
+   box-sizing : border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+    display: flex;
+    flex-flow: column;
+}
+
+a{
+    font-weight: bold;
+    font-size:xx-large;
+	text-decoration: none !important;
+	color: #031436;
+	transition: all 0.3s ease;
+}
+
+a:hover {
+    font-weight: bolder;
+	color: #133798;
+}
+
+
+   

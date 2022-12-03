@@ -1,0 +1,328 @@
+:root {
+  --red: #FF5A5F;
+  --white: #FFFFFF;
+  --lightgrey: #CDD1CC;
+  --darkgrey: #555A5C;
+  --darkergrey: #282C34;
+  --gold: #FFB500;
+  --turquoise: #007C80;
+  --green: #55ffbb;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  height: 56px;
+
+  padding: 0 20px;
+}
+
+.navbar > :nth-child(1) {
+  flex: 1;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0 8px;
+  font-size: 18pt;
+}
+
+.navbar-item > a {
+  margin-right: auto;
+}
+
+.navbar-item > a:hover {
+  text-decoration: underline;
+}
+
+/* CONTENT */
+
+.content {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 3%;
+  padding-top: 0;
+}
+
+/* HOME */
+
+.bio {
+  gap: 0px;
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap-reverse;
+}
+
+.bio-content {
+
+}
+
+.bio-content > h1 {
+  font-weight: bolder;
+  font-size:50px;
+  width: 100%;
+  text-align: center;
+}
+
+.bio-content > h3 {
+  font-weight: bolder;
+  font-size: 35px;
+  width: 100%;
+  text-align: center;
+}
+
+.bio-content > p {
+  text-indent: 80px;
+  font-weight:normal;
+  font-size: 28px;
+  width: 100%;
+  text-align: justify;
+  text-justify: auto;
+}
+
+
+.portrait-image {
+  width: 100%;
+  height: fit-content;
+  margin-top: 10px;
+  box-shadow: 5px 4px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.button-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content-button {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 8px 16px;
+  margin: 0 16px;
+  font-size: 14pt;
+  background: white;
+  border: 2px solid var(--darkgrey);
+  transition: all 150ms ease-in-out;
+}
+
+.content-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 0px 1px 1px,
+              rgba(0, 0, 0, 0.24) 0px 2px 2px 0px;
+}
+
+.content-button:active {
+  border: 2px solid var(--darkergrey);
+  background: rgba(1.0, 1.0, 1.0, 0.05);
+}
+
+@media only screen and (min-width: 1090px) {
+  /* For desktop: */
+  .bio {
+    gap: 30px;
+  }
+
+  .portrait-image {
+    width: 35.5em;
+    margin-top: 0px;
+  }
+
+  .bio-content {
+    width: 55%;
+  }
+}
+
+.posts-section {
+  display: flex;
+  flex-direction: column;
+  min-width: 940px;
+  max-width: 100%;
+  width: 940px;
+  align-self: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+
+.posts-section-header {
+  font-weight: 400;
+  font-size: 24pt;
+  margin: 0;
+  margin-top: 80px;
+}
+
+.posts-list {
+  padding: 0;
+}
+
+.blog-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-title {
+  margin: 20px 0 8px 0;
+  font-size: 20pt;
+  font-weight: 400;
+
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+
+.publish-date {
+  margin-bottom: 20px;
+}
+
+.blog-item-hr {
+  width: 100%;
+  background: var(--lightgrey);
+  height: 2px;
+  border: none;
+}
+
+/* Portfolio Page */
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio > h1 {
+  text-align: center;
+  font-size: 28pt;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  margin: 12px;
+}
+
+.app-image {
+  width: 220px;
+}
+
+.app-container-content {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 32px;
+  font-weight: bold;
+}
+
+.app-title {
+  margin: 0;
+  padding: 0;
+}
+
+.app-title > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-desc {
+  text-indent: 32px;
+  line-height: 18pt;
+  margin: 4px;
+  padding: 0;
+}
+
+.redirect-link {
+  color: inherit;
+  margin: 0 16px;
+}
+
+.tag-list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: auto 0 0 0;
+  padding: 0;
+  bottom: 0;
+}
+
+.tag {
+  list-style: none;
+  margin: 0 5px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: #575757;
+  color: lightgray;
+}
+
+.commit-log {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  width: 80%;
+}
+
+.commit-log > img {
+  width: 100%;
+  object-fit: contain;
+}
+
+
+
+/* WORK */
+
+.work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.work > h1 {
+  text-align: center;
+  font-size: 28pt;
+}
+
+
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  font-size: 24pt;
+  font-weight: 200;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-size: 10pt;
+  margin: 4px 0;
+}
+
+.footer > a {
+  padding: 0 4px;
+}
+
+@media all and (max-width: 600px) {
+  .footer {
+    display: none;
+  }
+}
